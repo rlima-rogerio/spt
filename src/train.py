@@ -45,6 +45,8 @@ import pytorch_lightning as pl
 from omegaconf import OmegaConf, DictConfig
 from pytorch_lightning import Callback, LightningDataModule, LightningModule, Trainer
 from pytorch_lightning.loggers import Logger
+# import faulthandler
+
 
 from src import utils
 
@@ -135,6 +137,8 @@ def train(cfg: DictConfig) -> Tuple[dict, dict]:
 
 @hydra.main(version_base="1.2", config_path=root + "/configs", config_name="train.yaml")
 def main(cfg: DictConfig) -> Optional[float]:
+
+    # faulthandler.enable()
 
     # train the model
     metric_dict, _ = train(cfg)

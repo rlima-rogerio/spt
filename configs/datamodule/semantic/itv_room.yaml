@@ -1,0 +1,11 @@
+# @package datamodule
+defaults:
+  - /datamodule/semantic/itv.yaml
+
+# Room-wise learning on the ITV dataset
+_target_: src.datamodules.itv_room.ITVRoomDataModule
+
+dataloader:
+    batch_size: 4
+
+sample_graph_k: -1  # skip subgraph sampling; to directly use the whole room
