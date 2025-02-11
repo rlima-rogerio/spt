@@ -21,7 +21,7 @@ in_memory: True  # set to True to load all processed ITV in RAM. This may accele
 
 # point features used for the partition
 partition_hf:
-  - 'rgb'
+  # - 'rgb'
   - 'linearity'
   - 'planarity'
   - 'scattering'
@@ -35,7 +35,7 @@ point_hf:
   - 'scattering'
   - 'verticality'
   - 'elevation'
-  - 'rgb'
+  # - 'rgb'
 
 # segment-wise features computed at preprocessing
 segment_base_hf: []

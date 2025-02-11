@@ -12,4 +12,4 @@ segment_mean_hf:
   - 'scattering'
   - 'verticality'
   - 'elevation'
-  - 'rgb'
+  # - 'rgb'

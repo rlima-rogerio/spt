@@ -339,22 +339,16 @@ ROOMS = {
 # Credit: https://github.com/torch-points3d/torch-points3d
 
 # Número total de classes atualizadas (13 originais - 6 agrupadas + 1 obstáculo + 4 novas classes)
-ITV_NUM_CLASSES = 12  # Ajustado para refletir as mudanças
+ITV_NUM_CLASSES = 6  # Ajustado para refletir as mudanças
 
 # Mapeamento de classes
 INV_OBJECT_LABEL = {
-    0: "ceiling",
-    1: "floor",
-    2: "wall",
-    3: "beam",
-    4: "column",
-    5: "window",
-    6: "door",
-    7: "obstacle",   # Nova classe para agrupar: chair, table, bookcase, sofa, board, clutter
-    8: "stairs",      # Nova classe
-    9: "grass",       # Nova classe
-    10: "puddle",     # Nova classe
-    11: "mesh"        # Nova classe
+    0: "floor",
+    1: "stairs",    # Nova classe
+    2: "grass",     # Nova classe
+    3: "puddle",    # Nova classe
+    4: "mesh",      # Nova classe
+    5: "obstacle"   # Nova classe para agrupar: ceiling,  wall, beam, column, window, door, chair, table, bookcase, sofa, board, clutter
 }
 
 # Lista de nomes das classes
@@ -362,20 +356,28 @@ CLASS_NAMES = [INV_OBJECT_LABEL[i] for i in range(ITV_NUM_CLASSES)] + ['ignored'
 
 # Cores para cada classe
 CLASS_COLORS = np.asarray([
-    [233, 229, 107],  # 'ceiling'   -> amarelo
-    [95, 156, 196],   # 'floor'     -> azul
-    [179, 116, 81],   # 'wall'      -> marrom
-    [241, 149, 131],  # 'beam'      -> salmão
-    [81, 163, 148],   # 'column'    -> azul esverdeado
-    [77, 174, 84],    # 'window'    -> verde claro
-    [108, 135, 75],   # 'door'      -> verde escuro
-    [128, 128, 128],  # 'obstacle'  -> cinza médio (nova classe agregada)
-    [200, 100, 50],   # 'stairs'    -> laranja queimado
-    [34, 139, 34],    # 'grass'     -> verde gramado
-    [0, 191, 255],    # 'puddle'    -> azul claro
-    [160, 82, 45],    # 'mesh'      -> marrom escuro
-    [0, 0, 0]         # 'ignored'   -> preto
-])
+    [255, 160, 122],    # Salmon        : floor
+    [255, 140,   0],    # Dark orange   : stairs
+    [  0, 128,   0],    # Dark green    : grass
+    [ 70, 130, 180],    # Navy          : puddle
+    [128, 128, 128],    # Gray          : mesh
+    [200,   0,    ]])   # Purple        : obstacle
+
+# CLASS_COLORS = np.asarray([
+#     [255, 215,   0],      # 'ceiling'   -> amarelo dourado (mais vibrante)
+#     [ 70, 130, 180],      # 'floor'     -> azul aço (tom mais frio)
+#     [139,  69,  19],      # 'wall'      -> marrom chocolate (mais escuro)
+#     [255, 160, 122],      # 'beam'      -> salmão claro (mais suave)
+#     [ 72, 209, 204],      # 'column'    -> turquesa médio (azul esverdeado mais brilhante)
+#     [144, 238, 144],      # 'window'    -> verde claro suave (verde menta)
+#     [ 85, 107, 47],       # 'door'      -> verde oliva escuro (mais profundo)
+#     [105, 105, 105],      # 'obstacle'  -> cinza escuro (mantendo neutralidade)
+#     [255, 140,   0],      # 'stairs'    -> laranja escuro (mais intenso)
+#     [ 46, 139,  87],      # 'grass'     -> verde mar (mais suave)
+#     [ 30, 144, 255],      # 'puddle'    -> azul dodger (azul mais vibrante)
+#     [139,  69,  19],      # 'mesh'      -> marrom saddlebrown (rico e profundo)
+#     [211, 211, 211]       # 'unlabeled' -> cinza claro (mais suave que o original)
+# ])
 
 
 OBJECT_LABEL = {name: i for i, name in INV_OBJECT_LABEL.items()}
