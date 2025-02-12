@@ -31,9 +31,9 @@ __all__ = ['ITV', 'MiniITV']
 def read_itv_area(
         area_dir: str,
         xyz: bool = True,
-        rgb: bool = True,
+        rgb: bool = False,
         semantic: bool = True,
-        instance: bool = True,
+        instance: bool = False,
         xyz_room: bool = False,
         align: bool = False,
         is_val: bool = True,
@@ -110,9 +110,9 @@ def read_itv_area(
 def read_itv_room(
         room_dir: str,
         xyz: bool = True,
-        rgb: bool = True,
+        rgb: bool = False,
         semantic: bool = True,
-        instance: bool = True,
+        instance: bool = False,
         xyz_room: bool = False,
         align: bool = False,
         is_val: bool = True,

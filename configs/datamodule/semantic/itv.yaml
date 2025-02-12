@@ -9,7 +9,7 @@ dataloader:
 
 # These parameters are not actually used by the DataModule, but are used
 # here to facilitate model parameterization with config interpolation
-num_classes: 12
+num_classes: 6
 stuff_classes: []
 fold: 5
 trainval: True

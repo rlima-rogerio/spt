@@ -329,7 +329,12 @@ ROOMS = {
         "office_8",
         "office_9",
         "openspace_1",
-        "pantry_1"]}
+        "pantry_1"],
+    "UFOP": [
+        "concreteStaircase_1",
+        "highBush_1",
+        "highBush_2",
+        "mudPuddle_1"]}
 
 
 ########################################################################
@@ -358,10 +363,10 @@ CLASS_NAMES = [INV_OBJECT_LABEL[i] for i in range(ITV_NUM_CLASSES)] + ['ignored'
 CLASS_COLORS = np.asarray([
     [255, 160, 122],    # Salmon        : floor
     [255, 140,   0],    # Dark orange   : stairs
-    [  0, 128,   0],    # Dark green    : grass
+    [ 46, 139,  87],    # Dark green    : grass
     [ 70, 130, 180],    # Navy          : puddle
     [128, 128, 128],    # Gray          : mesh
-    [200,   0,    ]])   # Purple        : obstacle
+    [200,   0,   0]])   # Purple        : obstacle
 
 # CLASS_COLORS = np.asarray([
 #     [255, 215,   0],      # 'ceiling'   -> amarelo dourado (mais vibrante)
