@@ -254,7 +254,7 @@ ROOMS = {
         "office_27",
         "office_28",
         "office_29",
-        "office_3",
+        "office_3", 
         "office_30",
         "office_31",
         "office_32",
@@ -330,11 +330,21 @@ ROOMS = {
         "office_9",
         "openspace_1",
         "pantry_1"],
-    "UFOP": [
-        "concreteStaircase_1",
-        "highBush_1",
-        "highBush_2",
-        "mudPuddle_1"]}
+    "Area_7": [
+        "openspace_1",
+        "openspace_2",
+        "openspace_3",
+        "openspace_4",
+        "openspace_5",
+        "openspace_6",
+        "openspace_7",
+        "openspace_8",
+        "openspace_9",
+        "openspace_10",
+        "openspace_11",
+        "openspace_12"],
+    "Area_8": [
+        "openspace_1"]}
 
 
 ########################################################################
@@ -343,17 +353,15 @@ ROOMS = {
 
 # Credit: https://github.com/torch-points3d/torch-points3d
 
-# Número total de classes atualizadas (13 originais - 6 agrupadas + 1 obstáculo + 4 novas classes)
-ITV_NUM_CLASSES = 6  # Ajustado para refletir as mudanças
+# Número total de classes atualizadas 
+ITV_NUM_CLASSES = 4
 
 # Mapeamento de classes
 INV_OBJECT_LABEL = {
     0: "floor",
     1: "stairs",    # Nova classe
     2: "grass",     # Nova classe
-    3: "puddle",    # Nova classe
-    4: "mesh",      # Nova classe
-    5: "obstacle"   # Nova classe para agrupar: ceiling,  wall, beam, column, window, door, chair, table, bookcase, sofa, board, clutter
+    3: "puddle"    # Nova classe
 }
 
 # Lista de nomes das classes
@@ -362,11 +370,10 @@ CLASS_NAMES = [INV_OBJECT_LABEL[i] for i in range(ITV_NUM_CLASSES)] + ['ignored'
 # Cores para cada classe
 CLASS_COLORS = np.asarray([
     [255, 160, 122],    # Salmon        : floor
-    [255, 140,   0],    # Dark orange   : stairs
+    [127,  71, 209],    # Purple        : stairs
     [ 46, 139,  87],    # Dark green    : grass
     [ 70, 130, 180],    # Navy          : puddle
-    [128, 128, 128],    # Gray          : mesh
-    [200,   0,   0]])   # Purple        : obstacle
+    [  0,   0,   0]])   # Black         : unlabeled
 
 # CLASS_COLORS = np.asarray([
 #     [255, 215,   0],      # 'ceiling'   -> amarelo dourado (mais vibrante)
@@ -391,7 +398,7 @@ def object_name_to_label(object_class):
     """Convert from object name to int label. By default, if an unknown
     object nale
     """
-    object_label = OBJECT_LABEL.get(object_class, OBJECT_LABEL["obstacle"])
+    object_label = OBJECT_LABEL.get(object_class, OBJECT_LABEL["floor"])
     return object_label
 
 # For instance segmentation

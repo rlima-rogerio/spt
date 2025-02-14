@@ -176,10 +176,10 @@ def read_itv_room(
         object_class = object_name.split('_')[0]
 
         # Convert object class string to int label. Note that by default
-        # if an unknown class is read, it will be treated as 'obstacle'.
+        # if an unknown class is read, it will be treated as 'floor'.
         # This is necessary because an unknown 'staris' class can be
         # found in some rooms
-        label = OBJECT_LABEL.get(object_class, OBJECT_LABEL['obstacle'])
+        label = OBJECT_LABEL.get(object_class, OBJECT_LABEL['floor'])
         points = pd.read_csv(path, sep=' ', header=None).values
 
         if xyz:
@@ -377,8 +377,8 @@ class ITV(BaseDataset):
             `{'train': [...], 'val': [...], 'test': [...]}`
         """
         return {
-            'train': [f'Area_{i}' for i in range(1, 7) if i != self.fold],
-            'val': [f'Area_{i}' for i in range(1, 7) if i != self.fold],
+            'train': [f'Area_{i}' for i in range(1, 9) if i != self.fold],
+            'val': [f'Area_{i}' for i in range(1, 9) if i != self.fold],
             'test': [f'Area_{self.fold}']}
 
     def download_dataset(self) -> None:
@@ -457,7 +457,7 @@ class ITV(BaseDataset):
 
 
 ########################################################################
-#                              Miniread_itv_area                               #
+#                              MiniITV                                 #
 ########################################################################
 
 class MiniITV(ITV):

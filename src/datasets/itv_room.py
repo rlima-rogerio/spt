@@ -57,10 +57,10 @@ class ITVRoom(ITV):
         """
         return {
             'train': [
-                f'Area_{i}/{r}' for i in range(1, 7) if i != self.fold
+                f'Area_{i}/{r}' for i in range(1, 9) if i != self.fold
                 for r in ROOMS[f'Area_{i}']],
             'val': [
-                f'Area_{i}/{r}' for i in range(1, 7) if i != self.fold
+                f'Area_{i}/{r}' for i in range(1, 9) if i != self.fold
                 for r in ROOMS[f'Area_{i}']],
             'test': [
                 f'Area_{self.fold}/{r}' for r in ROOMS[f'Area_{self.fold}']]}
@@ -83,7 +83,7 @@ class ITVRoom(ITV):
         This applies to both `Data.y` and `Data.obj.y`.
         """
         return read_itv_room(
-            raw_cloud_path, xyz=True, rgb=True, semantic=True, instance=True,
+            raw_cloud_path, xyz=True, rgb=False, semantic=True, instance=True,
             xyz_room=True, align=self.align, is_val=True, verbose=False)
 
     @property
